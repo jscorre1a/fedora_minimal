@@ -22,7 +22,10 @@ dnf install \
 	kernel-devel \
 	gcc \
 	wget \
-	gnome-keyring
+	gnome-keyring \
+	glibc-langpack-en \
+	glibc-langpack-pt \
+	fira-code-fonts
 
 systemctl enable sddm
 
@@ -85,3 +88,4 @@ rm -rf VMware-Player-16.1.0-17198959.x86_64.bundle
 #sudo rmmod kvm_intel kvm - probably not needed with --ignore-errors flag
 #sudo grub2-mkconfig -o /etc/grub2-efi.cfg
 #sudo vi /etc/default/grub
+#/usr/bin/Discord --start-minimized
