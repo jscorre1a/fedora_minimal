@@ -21,7 +21,8 @@ dnf install \
 	kernel-headers \
 	kernel-devel \
 	gcc \
-	wget
+	wget \
+	gnome-keyring
 
 systemctl enable sddm
 
@@ -81,4 +82,6 @@ sh ./VMware-Player-16.1.0-17198959.x86_64.bundle --ignore-errors
 
 rm -rf VMware-Player-16.1.0-17198959.x86_64.bundle
 
-#udo rmmod kvm_intel kvm - probably not needed with --ignore-errors flag
+#sudo rmmod kvm_intel kvm - probably not needed with --ignore-errors flag
+#sudo grub2-mkconfig -o /etc/grub2-efi.cfg
+#sudo vi /etc/default/grub
