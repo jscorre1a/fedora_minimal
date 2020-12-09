@@ -73,7 +73,7 @@ dnf install discord
 
 dnf install https://github.com/vladimiry/ElectronMail/releases/download/v4.9.2/electron-mail-4.9.2-linux-x86_64.rpm
 
-get "https://download3.vmware.com/software/player/file/VMware-Player-16.1.0-17198959.x86_64.bundle"
+wget "https://download3.vmware.com/software/player/file/VMware-Player-16.1.0-17198959.x86_64.bundle"
 
 chmod -x VMware-Player-16.1.0-17198959.x86_64.bundle
 
