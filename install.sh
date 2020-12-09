@@ -77,6 +77,13 @@ dnf install discord
 
 dnf install https://github.com/vladimiry/ElectronMail/releases/download/v4.9.2/electron-mail-4.9.2-linux-x86_64.rpm
 
+TEMP_USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
+
+mkdir $TEMP_USER_HOME/.config/rofi
+
+cp extras/config.rasi $TEMP_USER_HOME/.config/rofi/config.rasi
+
+
 wget "https://download3.vmware.com/software/player/file/VMware-Player-16.1.0-17198959.x86_64.bundle"
 
 chmod -x VMware-Player-16.1.0-17198959.x86_64.bundle
