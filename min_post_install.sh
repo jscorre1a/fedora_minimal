@@ -14,4 +14,4 @@ cp extras/settings.json $HOME/.config/Code/User/settings.json
 cp -a startup/. $HOME/.config/autostart/
 
 # Install mono
-sh ./extras/install.sh
+sh ./extras/install.sh -i
