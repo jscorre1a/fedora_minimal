@@ -15,13 +15,14 @@
     "workbench.colorCustomizations": {
         "editor.lineHighlightBackground": "#26909e3f"
     },
+    /*
     "workbench.colorTheme": "Material Theme Darker",
     "workbench.iconTheme": "eq-material-theme-icons-darker",
+    */
     "editor.lineHeight": 32,
     "editor.codeActionsOnSave": {},
-    "terminal.integrated.shell.linux": "/bin/zsh",
-    /* "workbench.colorCustomizations": {
-        "terminal.foreground": "#00FD61",
-        "terminal.background": "#383737"
-    }*/
+    "editor.rulers": [
+
+    ]
 }
+

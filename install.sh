@@ -1,5 +1,29 @@
 #!/bin/env bash
 
+dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+
+rpm --import https://packages.microsoft.com/keys/microsoft.asc
+
+echo -e "[azure-cli]
+name=Azure CLI
+baseurl=https://packages.microsoft.com/yumrepos/azure-cli
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc" | tee /etc/yum.repos.d/azure-cli.repo
+
+echo -e "[code]
+name=Visual Studio Code
+baseurl=https://packages.microsoft.com/yumrepos/vscode
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc" | tee /etc/yum.repos.d/vscode.repo
+
+dnf check-update
+
+LE_USER=$(getent passwd $SUDO_USER | cut -d: -f6 | cut -d/ -f3)
+
+gpasswd -a $LE_USER input
+
 dnf install \
 	bluedevil \
 	ark \
@@ -29,18 +53,19 @@ dnf install \
 	fira-code-fonts \
 	xdotool \
 	ruby \
-	wmctrl	
+	wmctrl \
+	terraform \
+	azure-cli \
+	code \
+	https://github.com/vladimiry/ElectronMail/releases/download/v4.9.2/electron-mail-4.9.2-linux-x86_64.rpm \
+	https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+	https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
+sudo dnf check-update
 
-systemctl enable sddm
+dnf install discord
 
-systemctl set-default graphical.target
-
-dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
-
-dnf check-update
-
-dnf install terraform
+gem install fusuma fusuma-plugin-wmctrl fusuma-plugin-keypress
 
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 
@@ -54,54 +79,20 @@ rm -rf awscliv2.zip
 
 aws --version
 
-rpm --import https://packages.microsoft.com/keys/microsoft.asc
+wget "https://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-16.1.0-17198959.x86_64.bundle"
 
-echo -e "[azure-cli]
-name=Azure CLI
-baseurl=https://packages.microsoft.com/yumrepos/azure-cli
-enabled=1
-gpgcheck=1
-gpgkey=https://packages.microsoft.com/keys/microsoft.asc" | tee /etc/yum.repos.d/azure-cli.repo
+chmod -x VMware-Workstation-Full-16.1.0-17198959.x86_64.bundle
 
-echo -e "[code]
-name=Visual Studio Code
-baseurl=https://packages.microsoft.com/yumrepos/vscode
-enabled=1
-gpgcheck=1
-gpgkey=https://packages.microsoft.com/keys/microsoft.asc" | tee /etc/yum.repos.d/vscode.repo
+sh ./VMware-Workstation-Full-16.1.0-17198959.x86_64.bundle --ignore-errors --console --eulas-agreed
 
-dnf check-update
+rm -rf VMware-Workstation-Full-16.1.0-17198959.x86_64.bundle
 
-dnf install azure-cli code
+systemctl enable sddm
 
-dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+systemctl set-default graphical.target
 
-dnf check-update
+vi /etc/default/grub
 
-dnf install discord
+grub2-mkconfig -o /etc/grub2-efi.cfg
 
-dnf install https://github.com/vladimiry/ElectronMail/releases/download/v4.9.2/electron-mail-4.9.2-linux-x86_64.rpm
-
-#TEMP_USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
-#mkdir $TEMP_USER_HOME/.config/rofi
-#cp extras/config.rasi $TEMP_USER_HOME/.config/rofi/config.rasi
-#temporary disabled cause .config only appears after plasma session starts
-
-wget "https://download3.vmware.com/software/player/file/VMware-Player-16.1.0-17198959.x86_64.bundle"
-
-chmod -x VMware-Player-16.1.0-17198959.x86_64.bundle
-
-sh ./VMware-Player-16.1.0-17198959.x86_64.bundle --ignore-errors
-
-rm -rf VMware-Player-16.1.0-17198959.x86_64.bundle
-
-LE_USER=$(getent passwd $SUDO_USER | cut -d: -f6 | cut -d/ -f3)
-
-gpasswd -a $LE_USER input
-
-gem install fusuma fusuma-plugin-wmctrl fusuma-plugin-keypress
-
-#sudo rmmod kvm_intel kvm - probably not needed with --ignore-errors flag
-#sudo grub2-mkconfig -o /etc/grub2-efi.cfg
-#sudo vi /etc/default/grub
-#/usr/bin/Discord --start-minimized
+reboot
