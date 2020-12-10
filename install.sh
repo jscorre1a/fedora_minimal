@@ -31,6 +31,7 @@ dnf install \
 	tar \
 	dolphin \
 	firefox \
+	qbittorrent \
 	kvantum \
 	ansible \
 	sddm \
