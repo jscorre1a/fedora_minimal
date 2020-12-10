@@ -26,7 +26,11 @@ dnf install \
 	glibc-langpack-en \
 	glibc-langpack-pt \
 	kdeplasma-addons \
-	fira-code-fonts
+	fira-code-fonts \
+	xdotool \
+	ruby \
+	wmctrl	
+
 
 systemctl enable sddm
 
@@ -90,6 +94,12 @@ chmod -x VMware-Player-16.1.0-17198959.x86_64.bundle
 sh ./VMware-Player-16.1.0-17198959.x86_64.bundle --ignore-errors
 
 rm -rf VMware-Player-16.1.0-17198959.x86_64.bundle
+
+LE_USER=$(getent passwd $SUDO_USER | cut -d: -f6 | cut -d/ -f3)
+
+gpasswd -a $LE_USER input
+
+gem install fusuma fusuma-plugin-wmctrl fusuma-plugin-keypress
 
 #sudo rmmod kvm_intel kvm - probably not needed with --ignore-errors flag
 #sudo grub2-mkconfig -o /etc/grub2-efi.cfg
