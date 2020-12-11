@@ -13,5 +13,8 @@ cp extras/settings.json $HOME/.config/Code/User/settings.json
 # Copy startup information
 cp -a startup/. $HOME/.config/autostart/
 
+# Copy wallpapers
+cp -r Wallhaven/ $HOME/Pictures/
+
 # Install mono
 sh ./extras/install.sh -i

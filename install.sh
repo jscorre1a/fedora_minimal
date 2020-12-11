@@ -46,12 +46,14 @@ dnf install \
 	kernel-headers \
 	kernel-devel \
 	gcc \
+	task \
 	wget \
 	gnome-keyring \
 	glibc-langpack-en \
 	glibc-langpack-pt \
 	kdeplasma-addons \
 	fira-code-fonts \
+	libinput-utils \
 	xdotool \
 	ruby \
 	wmctrl \
