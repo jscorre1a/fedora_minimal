@@ -31,6 +31,7 @@ configuration {
     padding: var(--space-two-thirds);
     border-radius: var(--border-radius);
     background-color: var(--color-body-base);
+    width: 35%;  //calc(100% - 10px);
 }
 
 #inputbar {
