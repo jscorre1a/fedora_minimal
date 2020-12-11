@@ -57,6 +57,15 @@ dnf install \
 	xdotool \
 	ruby \
 	wmctrl \
+	opam \
+	fuse \
+	fuse-devel \
+	gmp-devel \
+	libcurl-devel \
+	perl-Pod-Html \
+	pkgconfig \
+	sqlite-devel \
+	zlib-devel \
 	terraform \
 	azure-cli \
 	code \

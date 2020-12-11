@@ -16,5 +16,24 @@ cp -a startup/. $HOME/.config/autostart/
 # Copy wallpapers
 cp -r Wallhaven/ $HOME/Pictures/
 
-# Install mono
+# Install noir theme
 sh ./extras/install.sh -i
+
+# GDrive
+opam init
+
+source $HOME/.bash_profile 
+
+opam update
+
+opam install depext
+
+opam depext google-drive-ocamlfuse
+
+opam install google-drive-ocamlfuse
+
+google-drive-ocamlfuse
+
+mkdir $HOME/GoogleDrive/
+
+google-drive-ocamlfuse $HOME/GoogleDrive
