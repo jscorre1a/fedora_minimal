@@ -1,68 +1,76 @@
 configuration {
-
-modi: "drun";
-lines: 6;
-columns: 1;
-font: "Fira Code Retina 14";
-show-icons: true;
-hide-scrollbar: true;
-/* fake-transparency: true; */
-/* opacity: "15"; */
-
+    display-drun: ">";
+    display-run: "$";
+    display-window: "#";
+    modi: "drun,run,window,ssh";
+    sidebar-mode: true;
+    lines: 6;
+    columns: 1;
+    font: "Fira Code Retina 14";
+    show-icons: true;
+    hide-scrollbar: true;
 }
 
 * {
-  /* transparent: #00000000; */
-  background-color: #282C33;
-  border-color: #2e343f;
-  text-color: #8ca0aa;
-  spacing: 0;
-  width: 512px;
+    --border-radius: 0.15em;
+    --space-two-thirds: 0.66em;
+    --space-three-quarter: 0.75em;
+    --space-three-half: 0.50em;
+
+    --color-border: #ffffff0d;
+    --color-body-base: #2a2a2adf;
+    --color-body-contrast: #fafafa;
+    --color-body-base-alt: #ffffff80;
+    --color-selected-base: /*#8b57e6;*/ #315bef;
+
+    background-color: #00000000;
+    color: var(--color-body-contrast);
 }
 
-/*
-window {
-  transparency: "real";
-  background-color: @transparent;
-}
-*/
-
-inputbar {
-  border: 0 0 1px 0;
-  children: [prompt,entry];
+#window {
+    padding: var(--space-two-thirds);
+    border-radius: var(--border-radius);
+    background-color: var(--color-body-base);
 }
 
-prompt {
-  padding: 16px;
-  border: 0 1px 0 0;
+#inputbar {
+    padding: var(--space-two-thirds);
+    margin: 0 0.5em 0 0.5em;
+    border: 0 0 2px solid 0;
+    border-color: var(--color-border);
 }
 
-textbox {
-  background-color: #2e343f;
-  border: 0 0 1px 0;
-  border-color: #282C33;
-  padding: 8px 16px;
+#prompt {
+    padding: 0 0.5em 0 0;
 }
 
-entry {
-  padding: 16px;
+#listview {
+    padding: var(--space-three-half);
 }
 
-listview {
-  cycle: false;
-  margin: 0 0 -1px 0;
-  scrollbar: false;
+#element {
+    padding: 0.5em 0.35em;
+    border-radius: var(--border-radius);
 }
 
-element {
-  border: 0 0 1px 0;
-  padding: 16px;
+#element selected {
+  background-color: var(--color-selected-base);
 }
 
-element selected {
-  background-color: #2e343f;
+#mode-switcher {
+    padding: 0.66em 0 0;
+    border: 2px solid 0 0 0;
+    border-color: var(--color-border);
+}
+
+#button {
+    color: var(--color-body-contrast);
+}
+
+#button selected {
+    color: var(--color-selected-base);
 }
 
 element-icon { 
-  size: 36px; /* ch instead of px also works*/
+  size: 32px; /* ch instead of px also works*/
 }
