@@ -26,14 +26,17 @@ source $HOME/.bash_profile
 
 opam update
 
+source $HOME/.bash_profile
+source $HOME/.bashrc
+
 opam install depext
 
 opam depext google-drive-ocamlfuse
 
 opam install google-drive-ocamlfuse
 
-google-drive-ocamlfuse
+#google-drive-ocamlfuse
 
 mkdir $HOME/GoogleDrive/
 
-google-drive-ocamlfuse $HOME/GoogleDrive
+#google-drive-ocamlfuse $HOME/GoogleDrive
