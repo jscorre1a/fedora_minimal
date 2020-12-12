@@ -16,27 +16,26 @@ cp -a startup/. $HOME/.config/autostart/
 # Copy wallpapers
 cp -r Wallhaven/ $HOME/Pictures/
 
+mkdir $HOME/GoogleDrive/
+
 # Install noir theme
 sh ./extras/install.sh -i
 
 # GDrive
-opam init
+opam init -y
 
-source $HOME/.bash_profile 
+eval $(opam env)
 
 opam update
 
-source $HOME/.bash_profile
-source $HOME/.bashrc
+opam install depext -y
 
-opam install depext
+opam depext google-drive-ocamlfuse -y
 
-opam depext google-drive-ocamlfuse
+opam install google-drive-ocamlfuse -y
 
-opam install google-drive-ocamlfuse
+eval $(opam env)
 
 #google-drive-ocamlfuse
-
-mkdir $HOME/GoogleDrive/
 
 #google-drive-ocamlfuse $HOME/GoogleDrive

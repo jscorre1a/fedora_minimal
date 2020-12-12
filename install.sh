@@ -60,8 +60,10 @@ dnf install \
 	opam \
 	fuse \
 	fuse-devel \
+	gmp \
 	gmp-devel \
 	libcurl-devel \
+	m4 \ 
 	perl-Pod-Html \
 	pkgconfig \
 	sqlite-devel \
@@ -71,11 +73,12 @@ dnf install \
 	code \
 	https://github.com/vladimiry/ElectronMail/releases/download/v4.9.2/electron-mail-4.9.2-linux-x86_64.rpm \
 	https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
-	https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+	https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm \
+	https://johanh.net/repos/runescape/fedora-33/x86_64/runescape-launcher-2.2.8-1.fc33.x86_64.rpm -y
 
 sudo dnf check-update
 
-dnf install discord
+dnf install discord -y
 
 gem install fusuma fusuma-plugin-wmctrl fusuma-plugin-keypress
 
