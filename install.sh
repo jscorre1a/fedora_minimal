@@ -24,7 +24,7 @@ LE_USER=$(getent passwd $SUDO_USER | cut -d: -f6 | cut -d/ -f3)
 
 gpasswd -a $LE_USER input
 
-dnf install \
+dnf install -y \
 	bluedevil \
 	ark \
 	rofi \
@@ -63,7 +63,7 @@ dnf install \
 	gmp \
 	gmp-devel \
 	libcurl-devel \
-	m4 \ 
+	m4 \
 	perl-Pod-Html \
 	pkgconfig \
 	sqlite-devel \
@@ -74,7 +74,7 @@ dnf install \
 	https://github.com/vladimiry/ElectronMail/releases/download/v4.9.2/electron-mail-4.9.2-linux-x86_64.rpm \
 	https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
 	https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm \
-	https://johanh.net/repos/runescape/fedora-33/x86_64/runescape-launcher-2.2.8-1.fc33.x86_64.rpm -y
+	https://johanh.net/repos/runescape/fedora-33/x86_64/runescape-launcher-2.2.8-1.fc33.x86_64.rpm
 
 sudo dnf check-update
 
