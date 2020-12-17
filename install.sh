@@ -31,6 +31,8 @@ dnf install -y \
 	rofi \
 	tar \
 	feh \
+	stacer \
+	retroarch \
 	dolphin \
 	firefox \
 	qbittorrent \
