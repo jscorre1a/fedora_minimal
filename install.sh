@@ -30,10 +30,12 @@ dnf install -y \
 	ark \
 	rofi \
 	tar \
+	feh \
 	dolphin \
 	firefox \
 	qbittorrent \
 	kvantum \
+	joystick-support \
 	ansible \
 	sddm \
 	sddm-kcm \
