@@ -16,9 +16,9 @@ cp -a startup/. $HOME/.config/autostart/
 # Copy wallpapers
 cp -r Wallhaven/ $HOME/Pictures/
 
-#mkdir $HOME/GoogleDrive/
+mkdir $HOME/GoogleDrive/
 
-echo "eval $(opam env)" >> $HOME/.bashrc
+#echo "eval $(opam env)" >> $HOME/.bashrc
 
 # Install noir theme
 sh ./extras/install.sh -i

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=/home/johnny/.opam/default/bin/google-drive-ocamlfuse /home/johnny/GoogleDrive
+Icon=
+Name=google-drive-ocamlfuse
+Path=
+Terminal=False
+Type=Application
