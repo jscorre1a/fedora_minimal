@@ -18,6 +18,8 @@ cp -r Wallhaven/ $HOME/Pictures/
 
 #mkdir $HOME/GoogleDrive/
 
+echo "eval $(opam env)" >> $HOME/.bashrc
+
 # Install noir theme
 sh ./extras/install.sh -i
 
