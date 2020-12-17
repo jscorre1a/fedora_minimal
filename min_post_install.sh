@@ -16,7 +16,7 @@ cp -a startup/. $HOME/.config/autostart/
 # Copy wallpapers
 cp -r Wallhaven/ $HOME/Pictures/
 
-mkdir $HOME/GoogleDrive/
+#mkdir $HOME/GoogleDrive/
 
 # Install noir theme
 sh ./extras/install.sh -i
@@ -38,4 +38,4 @@ eval $(opam env)
 
 #google-drive-ocamlfuse
 
-#google-drive-ocamlfuse $HOME/GoogleDrive
+#google-drive-ocamlfuse $HOME/GoogleDrive -- Also add this to startup

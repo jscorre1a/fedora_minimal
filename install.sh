@@ -107,6 +107,14 @@ systemctl enable sddm
 
 systemctl set-default graphical.target
 
+ufw enable
+
+ufw default deny incoming
+
+ufw deny SSH
+
+systemctl enable ufw
+
 vi /etc/default/grub
 
 grub2-mkconfig -o /etc/grub2-efi.cfg
