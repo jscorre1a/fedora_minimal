@@ -26,6 +26,7 @@ gpasswd -a $LE_USER input
 
 dnf install -y \
 	bluedevil \
+	ufw \
 	ark \
 	rofi \
 	tar \

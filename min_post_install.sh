@@ -22,7 +22,7 @@ mkdir $HOME/GoogleDrive/
 sh ./extras/install.sh -i
 
 # GDrive
-opam init -y
+opam init -a -y
 
 eval $(opam env)
 
