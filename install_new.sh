@@ -1,5 +1,20 @@
 #!/bin/env bash
 
+dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+
+rpm --import https://packages.microsoft.com/keys/microsoft.asc
+
+echo -e "[azure-cli]
+name=Azure CLI
+baseurl=https://packages.microsoft.com/yumrepos/azure-cli
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/azure-cli.repo
+
+sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+
+dnf check-update
+
 dnf install -y \
 	bluedevil \
 	ufw \
@@ -33,19 +48,15 @@ dnf install -y \
 	glibc-langpack-pt \
 	kdeplasma-addons \
 	fira-code-fonts \
-	libinput-utils \
-	xdotool \
-	pkgconfig \
-	sqlite-devel \
-	zlib-devel \
 	terraform \
 	azure-cli \
-	code \
-	https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
-	https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm \
-	https://johanh.net/repos/runescape/fedora-33/x86_64/runescape-launcher-2.2.8-1.fc33.x86_64.rpm
+	code
 
-sudo dnf check-update
+dnf check-update
+
+dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+dnf check-update
 
 dnf install discord -y
 
@@ -67,9 +78,9 @@ systemctl set-default graphical.target
 
 ufw enable
 
-ufw default deny incoming
+#ufw default deny incoming
 
-ufw deny SSH
+#ufw deny SSH
 
 systemctl enable ufw
 
