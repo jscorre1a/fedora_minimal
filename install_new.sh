@@ -48,6 +48,8 @@ dnf install -y \
 	glibc-langpack-pt \
 	kdeplasma-addons \
 	fira-code-fonts \
+	open-vm-tools \
+	open-vm-tools-desktop \
 	terraform \
 	azure-cli \
 	code
