@@ -1,3 +1,11 @@
+# Ansible dependency
+# pip install packaging
+# pip install msrestazure
+
+wget https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
+pip install -r requirements-azure.txt --use-feature=2020-resolver 
+
+
 # Add rofi settings
 mkdir $HOME/.config/rofi
 cp extras/config.rasi $HOME/.config/rofi/config.rasi
